@@ -10,6 +10,7 @@ export default class UploadForm extends React.Component {
         this.processFile = this.processFile.bind(this);
         
         this.state = { hasResult:false, 
+                        result: {},
                         files: []  };
     
       }
@@ -17,23 +18,39 @@ export default class UploadForm extends React.Component {
       getBase64Image(img) {
         const reader = new FileReader();
         reader.onload = (event) => {
+            console.log("111");
           console.log(event.target.result);
+          fetch('/image', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name: 'val',
+              image: event.target.result
+            })
+          }).then(response => response.json())
+          .then(responseJson => {
+            this.procesResponse(responseJson);
+        })
+          .catch(error => {
+            console.error(error);
+          });
         };
-        var x = reader.readAsDataURL(img);
-        console.log(x)
-        return x;
+        reader.readAsDataURL(img);
+        console.log("2222");
       }
       
       processFile(file){
         console.log("yooo",file);
         var base64 = this.getBase64Image(file);
-        console.log(base64);
-        var xhr = new XMLHttpRequest();
-        var url = "/image";
-        xhr.open("POST", url, true);
-        xhr.setRequestHeader("Content-type", "application/json");
-        var data = JSON.stringify({"name":"test","data": base64 });
-        xhr.send(data);
+        console.log("333",base64);
+      }
+      
+      procesResponse(info){
+        this.setState({result : info});        
+        this.setState({hasResult: true});
       }
 
     onDrop(files) {
@@ -46,7 +63,7 @@ export default class UploadForm extends React.Component {
 
     render () {
         if(this.state.hasResult)
-            return <Result result={this.state.result}/>
+            return <Result info={this.state.result}/>
         else
             return (
                 <section className="header_upload_form_contrainer">
