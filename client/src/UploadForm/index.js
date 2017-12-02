@@ -5,7 +5,7 @@ export default class UploadForm extends React.Component {
     render () {
         return (
         <div>
-            <form action="/action_page.php">
+            <form className="header_upload_form_contrainer" action="/action_page.php">
                 <input type="file" name="pic" accept="image/*"/>
                 <input type="submit"/>
             </form>
