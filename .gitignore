@@ -63,7 +63,7 @@ keystore.json
 
 # images folder
 
-images/*
+images/
 
 # package-lock.json
 
