@@ -1,0 +1,12 @@
+{
+    "scripts": {
+        "start": "concurrently \"node server\" \"cd client && npm start\""
+    },
+    "dependencies": {
+        "express": "^4.16.2",
+        "nodemon": "^1.12.1"
+    },
+    "devDependencies": {
+        "concurrently": "^3.5.1"
+    }
+}
