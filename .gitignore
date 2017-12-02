@@ -63,4 +63,4 @@ keystore.json
 
 # images folder
 
-images
+images/*
