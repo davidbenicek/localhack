@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types'; // ES6
+import UploadForm from '../UploadForm'
 
 export default class Header extends React.Component {
     render () {
         return (
-        <div>
-            <img className="headerImage" src={this.props.image}></img>
-            <h1 className="headerTitle">{this.props.title}</h1>
+        <div className="header">
+            <img className="header_image" src={this.props.image}></img>
+            <h1 className="header_title">{this.props.title}</h1>
+            <UploadForm/>
         </div>
         )
     }

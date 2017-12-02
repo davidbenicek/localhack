@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Header from './Header'
-import UploadForm from './UploadForm'
 import BlockLeft from './BlockLeft'
 import BlockRight from './BlockRight'
 import Footer from './Footer'
@@ -13,7 +12,6 @@ class App extends Component {
         <Header
           image="background.jpg"
           title="Welcome to viZion"/>
-        <UploadForm/>
         <BlockRight/>
         <BlockLeft/>
         <Footer/>

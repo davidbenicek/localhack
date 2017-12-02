@@ -3,3 +3,40 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+/* Header */
+.header{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.header_image {
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+}
+
+.header_title {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: black;
+  width: 40%;
+  background: rgba(188,192,195,.6);
+  font-size: 33pt;
+}
+
+/* UploadForm */
+.header_upload_form_contrainer{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: rgba(188,192,195,.6);
+  
+}
