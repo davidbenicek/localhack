@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Map from '../Map';
 
 export default class Result extends React.Component {
     
     render () {
         return (
         <div className='result_container'>
-            <img className="result_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg/1200px-Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg"/>
-            <h2>We have detected {this.props.info.name}</h2>
-            <div>
-                map
+            <img className="result_image" src={this.props.info.otherImages[0].url}/>
+            <h2 className="result_text" >We have detected {this.props.info.name}</h2>
+            <div id="map">
+                <Map loc={this.props.info.location}/>
             </div>
         </div>
         )

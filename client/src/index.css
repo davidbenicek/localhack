@@ -41,6 +41,11 @@ body {
   
 }
 
+.header_uploade_spinner{
+  height: 200px;
+  width: 200px;
+}
+
 /* Block */
 .block {
   overflow: auto;
@@ -72,7 +77,19 @@ body {
 }
 .result_image{
   float: left;
-  max-width: 200px;
-  height: 200px;
+  width: 200px;
+  height: 225px;
   object-fit: cover;  
+}
+.result_text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 18px;
+}
+
+#map{
+  width: 300px;
+  height: 174px;
+  margin-left: 200px;
 }

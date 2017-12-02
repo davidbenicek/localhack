@@ -11,6 +11,7 @@ export default class UploadForm extends React.Component {
         
         this.state = { hasResult:false, 
                         result: {},
+                        loading: false,
                         files: []  };
     
       }
@@ -18,8 +19,6 @@ export default class UploadForm extends React.Component {
       getBase64Image(img) {
         const reader = new FileReader();
         reader.onload = (event) => {
-            console.log("111");
-          console.log(event.target.result);
           fetch('/image', {
             method: 'POST',
             headers: {
@@ -39,13 +38,11 @@ export default class UploadForm extends React.Component {
           });
         };
         reader.readAsDataURL(img);
-        console.log("2222");
       }
       
       processFile(file){
         console.log("yooo",file);
         var base64 = this.getBase64Image(file);
-        console.log("333",base64);
       }
       
       procesResponse(info){
@@ -53,18 +50,22 @@ export default class UploadForm extends React.Component {
         this.setState({hasResult: true});
       }
 
-    onDrop(files) {
-        console.log(files);
-        this.processFile(files[0]);
-    this.setState({
-        files
-    });
+    onDrop(objs) {
+        this.processFile(objs[0]);
+        this.setState({files: objs });
+        this.setState({loading: true})
     }
 
     render () {
         if(this.state.hasResult)
             return <Result info={this.state.result}/>
         else
+            if(this.state.loading)
+            return (<section className="header_upload_form_contrainer">
+                        <img className="header_uploade_spinner" src="spinner.gif"/>
+                    </section>
+                    )
+            else
             return (
                 <section className="header_upload_form_contrainer">
                 <div className="dropzone">

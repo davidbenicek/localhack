@@ -38,7 +38,6 @@ app.post('/image', function (req, res) {
 async function handleImageUpload(name,image){
     try {
         imageHandler.saveImage(name, image);
-        console.log("eomgs")
         const result = await imageRecognitionService.getWebData(name);
         const location = await googleMapsService.findPlace(result.name);
         
