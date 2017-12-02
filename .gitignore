@@ -57,3 +57,14 @@ typings/
 # dotenv environment variables file
 .env
 
+# keystore for Google api
+
+keystore.json
+
+# images folder
+
+images/
+
+# package-lock.json
+
+package-lock.json
