@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var imageRecognitionService = require("./services/imageRecognitionService.js");
 var imageHandler = require("./services/imageHandler.js");
+var googleMapsService = require("./services/googleMapsService.js");
 
 //Start server
 var app = express();
@@ -40,7 +41,8 @@ async function handleImageUpload(name,image){
         imageHandler.saveImage(name, image);
         const result = await imageRecognitionService.getWebData(name);
 
-        
+        const map = await googleMapsService.findPlace(result.name);
+        console.log(map);
         console.log("xxxxx",typeof result);
         return result;
     } catch (err) {

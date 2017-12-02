@@ -13,11 +13,11 @@ const client = new vision.ImageAnnotatorClient(config);
 
     var results = await client.webDetection(path)
 
-        const place = results[0].webDetection.webEntities[0].description;
-        const otherImages = results[0].webDetection.partialMatchingImages;
-        console.log({name : place, otherImages : otherImages});
+    const place = results[0].webDetection.webEntities[0].description;
+    const otherImages = results[0].webDetection.partialMatchingImages;
+    console.log({name : place, otherImages : otherImages});
 
-        return {name : place, otherImages : otherImages};
+    return {name : place, otherImages : otherImages};
 
   }
 
