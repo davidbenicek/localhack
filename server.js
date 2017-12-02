@@ -24,16 +24,29 @@ app.get('/test', function (req, res) {
 app.post('/image', function (req, res) {
     const name = req.body.name;
     const image = req.body.image;
-    try {
-        console.log("image");
-        imageHandler.saveImage(name, image);
-        var result = imageRecognitionService.getWebData(name);
-
-    } catch (err) {
-       console.log("zoooo");
-    }
-    res.send("");
+    const result = handleImageUpload(name,image);
+    console.log("tttt")
+    
+    result.then(function(x){
+        console.log("zooo")
+        res.send(x);
+        
+    })
+    
 });
+
+async function handleImageUpload(name,image){
+    try {
+        imageHandler.saveImage(name, image);
+        const result = await imageRecognitionService.getWebData(name);
+
+        
+        console.log("xxxxx",typeof result);
+        return result;
+    } catch (err) {
+       console.log(err);
+    }
+}
 
 app.listen(port);
 console.log("Backend server running on http://localhost:1200/")

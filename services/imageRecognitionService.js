@@ -9,27 +9,16 @@ const client = new vision.ImageAnnotatorClient(config);
 
   async function getWebData(name) {
 
-    console.log(name);
-
     const path = "./images/" + name + ".jpg";
 
-    console.log(path);
+    var results = await client.webDetection(path)
 
+        const place = results[0].webDetection.webEntities[0].description;
+        const otherImages = results[0].webDetection.partialMatchingImages;
+        console.log({name : place, otherImages : otherImages});
 
-    // Performs label detection on the image file
-    client.webDetection(path)
-    .then((results) => {
-        console.log("wwww")
-        const webEntities = results[0].webDetection.webEntities;
-        console.log(results);
-        console.log('Labels:');
-        webEntities.forEach((webEntities) => console.log(webEntities.description));
-    })
-    .catch((err) => {
-        console.error('ERROR:');
-    });
+        return {name : place, otherImages : otherImages};
 
-    return "";
   }
 
   module.exports = {getWebData};
