@@ -68,3 +68,7 @@ images/
 # package-lock.json
 
 package-lock.json
+
+# config file
+
+config.json

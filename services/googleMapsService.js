@@ -1,8 +1,9 @@
 request = require('async-request');
+var config = require('../config.json');
 
 async function findPlace(place) {
 
-    const url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBuivT2gNbZcJ2y8RQrACawtD-sFaWhR1w&address=" + place;
+    const url = "https://maps.googleapis.com/maps/api/geocode/json?key=" + config.googleMapToken + "&address=" + place;
 
     try {
         request = request.defaults({headers: {Accept: 'application/json'}});
