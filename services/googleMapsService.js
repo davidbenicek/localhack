@@ -1,18 +1,21 @@
-var request = require('request');
-
-
+request = require('async-request');
 
 async function findPlace(place) {
-    console.log("yooo",place);
 
-    const url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + place;
+    const url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBuivT2gNbZcJ2y8RQrACawtD-sFaWhR1w&address=" + place;
 
-    await request(url, async function (error, response, body) {
-        console.log('error:', error); // Print the error if one occurred
-        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-        console.log('body:', body); // Print the HTML for the Google homepage.
-        return body;
-      });
+    try {
+        request = request.defaults({headers: {Accept: 'application/json'}});
+        response = await request(url);
+    
+        var json = JSON.parse(response.body);
+
+        var location = json.results[0].geometry.location;
+
+        return location;
+    } catch (err) {
+        console.log("Error getting Maps: ", err);
+    }
  
   }
 

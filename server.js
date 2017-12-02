@@ -26,12 +26,9 @@ app.post('/image', function (req, res) {
     const name = req.body.name;
     const image = req.body.image;
     const result = handleImageUpload(name,image);
-    console.log("tttt")
-    
-    result.then(function(x){
-        console.log("zooo")
-        res.send(x);
         
+    result.then(function(x){
+        res.send(x);        
     })
     
 });
@@ -40,13 +37,13 @@ async function handleImageUpload(name,image){
     try {
         imageHandler.saveImage(name, image);
         const result = await imageRecognitionService.getWebData(name);
+        const location = await googleMapsService.findPlace(result.name);
+        
+        result.location = location;
 
-        const map = await googleMapsService.findPlace(result.name);
-        console.log(map);
-        console.log("xxxxx",typeof result);
         return result;
     } catch (err) {
-       console.log(err);
+       console.log("Error during handleImageUpload: ",err);
     }
 }
 
