@@ -60,3 +60,7 @@ typings/
 # keystore for Google api
 
 keystore.json
+
+# images folder
+
+images

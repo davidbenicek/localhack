@@ -25,9 +25,9 @@ app.post('/image', function (req, res) {
     const name = req.body.name;
     const image = req.body.image;
     try {
-       console.log("image");
+        console.log("image");
         imageHandler.saveImage(name, image);
-       // var result = imageRecognitionService.getWebData(name);
+        var result = imageRecognitionService.getWebData(name);
 
     } catch (err) {
        console.log("zoooo");

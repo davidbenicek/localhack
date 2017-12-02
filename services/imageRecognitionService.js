@@ -17,7 +17,7 @@ const client = new vision.ImageAnnotatorClient(config);
 
 
     // Performs label detection on the image file
-    client.webDetection(path)
+    client.webDetection("./images/123.jpg")
     .then((results) => {
         console.log("wwww")
         const webEntities = results[0].webDetection.webEntities;

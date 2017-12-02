@@ -3,7 +3,7 @@ var fs = require('fs');
 
 async function saveImage(name, base64) {
 
-    fs.writeFile("./images/" + name + ".jpg", base64, 'base64', function(err) {
+    fs.writeFileSync("./images/" + name + ".jpg", base64, 'base64', function(err) {
         if(err) {
             console.log("Could not save");
         }
