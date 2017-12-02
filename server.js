@@ -13,7 +13,7 @@ var googleMapsService = require("./services/googleMapsService.js");
 var app = express();
 var port = Number(process.env.BACKEND_PORT || 1200);
 
-app.use(bodyParser.json());       // to support JSON-encoded bodies
+app.use(bodyParser.json({limit: '10mb'}));
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   	extended: true
 }));
@@ -29,6 +29,8 @@ app.post('/image', function (req, res) {
         
     result.then(function(x){
         res.send(x);        
+    }).catch(function(err){
+        console.log(err);
     })
     
 });
@@ -36,6 +38,7 @@ app.post('/image', function (req, res) {
 async function handleImageUpload(name,image){
     try {
         imageHandler.saveImage(name, image);
+        console.log("eomgs")
         const result = await imageRecognitionService.getWebData(name);
         const location = await googleMapsService.findPlace(result.name);
         
