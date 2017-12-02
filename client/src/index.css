@@ -29,9 +29,15 @@ body {
   font-size: 33pt;
 }
 
+.img {
+  height: 90px;
+  width: 80px;
+}
+
 /* UploadForm */
 .header_upload_form_contrainer{
   position: absolute;
+  cursor: pointer;
   top: 60%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -48,9 +54,14 @@ body {
 
 /* Block */
 .block {
+  position: relative;
   overflow: auto;
   border-top: #72A887 2px solid;
-  height: 150px;
+  height: 50px;
+  top: 60%;
+  left: 34%;
+  width: 500px;
+  height: 120px;
 }
 
 .block_icon {
@@ -58,9 +69,17 @@ body {
 }
 .block_icon_right {
   float: right;
+  clear: both;
+  
 }
 .block_icon_left {
   float: left;
+  clear: both;
+}
+
+.elegantshadow {
+  color: rgba(88, 35, 35, 0.6);
+  text-shadow: 2px 8px 6px rgba(134, 23, 23, 0.2),0px -5px 35px rgba(255,255,255,0.3);
 }
 
 /* Result */

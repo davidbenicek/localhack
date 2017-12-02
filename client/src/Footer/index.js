@@ -4,7 +4,11 @@ import PropTypes from 'prop-types';
 export default class Footer extends React.Component {
     render () {
         return (
-        <div>
+        <div class="block">
+            <img class ="img" src="GitHub.png"/>
+            <img class ="img" src="nodejs.png"/>
+            <img class ="img" src="javascriptimg.png"/>
+            <img class ="img" src="react.png"/>
         </div>
         )
     }

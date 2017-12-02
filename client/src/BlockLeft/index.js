@@ -6,7 +6,7 @@ export default class BlockLeft extends React.Component {
         return (
         <div class="block">
             <img class="block_icon block_icon_left" src="upload.png"/>
-            <h1>Upload an image of your dream destination</h1>
+            <h1 className="elegantshadow">Upload your image...</h1>
         </div>
         )
     }
