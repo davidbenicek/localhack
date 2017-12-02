@@ -9,7 +9,7 @@ export default class Map extends Component {
     return (
       <GoogleMapReact
         defaultCenter={this.props.loc}
-        defaultZoom={5}
+        defaultZoom={8}
       >
       </GoogleMapReact>
     );
