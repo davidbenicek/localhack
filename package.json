@@ -3,6 +3,7 @@
         "start": "concurrently \"node server\" \"cd client && npm start\""
     },
     "dependencies": {
+        "@google-cloud/vision": "^0.13.0",
         "express": "^4.16.2",
         "nodemon": "^1.12.1"
     },
