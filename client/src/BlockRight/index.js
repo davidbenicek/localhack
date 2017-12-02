@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 export default class BlockRight extends React.Component {
     render () {
         return (
-        <div>
-            BlockRight
+        <div class="block">
+            <img class="block_icon block_icon_right" src="map.png"/>
+            <h1>We'll show you how to get there!</h1>
         </div>
         )
     }

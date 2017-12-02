@@ -11,9 +11,10 @@ class App extends Component {
       <div className="App">
         <Header
           image="background.jpg"
-          title="Welcome to viZion"/>
-        <BlockRight/>
+          title="Welcome to viZion"
+        />
         <BlockLeft/>
+        <BlockRight/>
         <Footer/>
       </div>
     );

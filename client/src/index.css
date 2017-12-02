@@ -40,3 +40,39 @@ body {
   background: rgba(188,192,195,.6);
   
 }
+
+/* Block */
+.block {
+  overflow: auto;
+  border-top: #72A887 2px solid;
+  height: 150px;
+}
+
+.block_icon {
+  height: 100px;
+}
+.block_icon_right {
+  float: right;
+}
+.block_icon_left {
+  float: left;
+}
+
+/* Result */
+.result_container{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 500px;
+  height: 200px;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: rgba(188,192,195,.6);
+}
+.result_image{
+  float: left;
+  max-width: 200px;
+  height: 200px;
+  object-fit: cover;  
+}
