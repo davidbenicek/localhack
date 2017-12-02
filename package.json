@@ -4,7 +4,8 @@
     },
     "dependencies": {
         "express": "^4.16.2",
-        "nodemon": "^1.12.1"
+        "nodemon": "^1.12.1",
+        "prop-types": "^15.6.0"
     },
     "devDependencies": {
         "concurrently": "^3.5.1"
